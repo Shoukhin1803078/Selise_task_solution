@@ -6,6 +6,11 @@ Here I build a **Mini Agentic RAG system** built with **LangChain** and **LangGr
 
 ---
 
+# My way
+![Screenshot 2025-12-07 at 6 42 52 PM](https://github.com/user-attachments/assets/8095090b-8667-44f6-bf9b-7d0721e3b89d)
+
+
+
 ## Project Structure
 ```bash
 .
