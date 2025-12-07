@@ -2,12 +2,12 @@
 
 # Mini Agentic RAG System
 
-A lightweight **Mini Agentic RAG (Retrieval-Augmented Generation) system** built in Python. This project allows you to ingest documents into a vector database and query them using either **LangChain** or **LangGraph** agents.
+Here I build a **Mini Agentic RAG system** built with **LangChain** and **LangGraph** orchestrator . This project allows to ingest documents into a vector database and answer on user query by agents.I build this project in two ways langgraph and langchain.
 
 ---
 
 ## Project Structure
-
+```bash
 .
 ├── README.md
 ├── agent_with_langchain.py
@@ -18,7 +18,7 @@ A lightweight **Mini Agentic RAG (Retrieval-Augmented Generation) system** built
 ├── ingest.py
 ├── main.py
 └── requirements.txt
-
+```
 ---
 
 
@@ -43,6 +43,13 @@ pip install -r requirements.txt
 python ingest.py
 python main.py
 ```
+---
+# Output
+### Data ingestion (python ingest.py)
+![data_ingestion](https://github.com/user-attachments/assets/c0de10b8-bd3d-4b3e-842f-ae369e073e98)
+### Agent Running (python main.py)
+<img width="1710" height="1107" alt="run_agent" src="https://github.com/user-attachments/assets/14a909af-f9eb-43fd-971a-607ab32c06c4" />
+
 
 ## Notes
 Before running, you can set the mode in main.py:
