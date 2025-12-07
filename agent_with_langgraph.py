@@ -44,9 +44,6 @@ class GraphState(TypedDict):
     documents: List[str]
 
 
-
-
-
 #  Nodes 
 
 def retrieve(state):
@@ -60,7 +57,6 @@ def generate(state):
     print("---GENERATE---")
     question = state["question"]
     documents = state["documents"]
-    
     
     llm = get_llm()
     
@@ -143,9 +139,6 @@ def transform_query(state):
     better_question = question_rewriter.invoke({"question": question})
     
     return {"documents": documents, "question": better_question}
-
-
-
 
 
 # Conditional Edges
@@ -234,17 +227,13 @@ def grade_generation_v_documents_and_question(state):
         return "not supported"
 
 
-
-
 # Graph 
 workflow = StateGraph(GraphState)
-
 
 workflow.add_node("retrieve", retrieve)
 workflow.add_node("grade_documents", grade_documents)
 workflow.add_node("generate", generate)
 workflow.add_node("transform_query", transform_query)
-
 
 workflow.add_edge(START, "retrieve")
 workflow.add_edge("retrieve", "grade_documents")
@@ -268,3 +257,15 @@ workflow.add_conditional_edges(
 )
 
 app = workflow.compile()
+
+# === VISUALIZATION CODE ===
+# Display the graph structure
+try:
+    from IPython.display import Image, display
+    display(Image(app.get_graph().draw_mermaid_png()))
+except Exception:
+    # If IPython is not available, save to file
+    print("Saving graph visualization to 'workflow_graph.png'...")
+    with open("workflow_graph.png", "wb") as f:
+        f.write(app.get_graph().draw_mermaid_png())
+    print("Graph saved successfully!")
