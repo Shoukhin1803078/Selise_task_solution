@@ -57,5 +57,5 @@ python main.py
 
 
 ## Notes
-Before running, you can set the mode in main.py:
-WAY = "langchain"  
+Before running,you can set the mode in main.py:
+WAY = "langchain" or "langgraph" 
